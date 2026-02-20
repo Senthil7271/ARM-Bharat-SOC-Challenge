@@ -1,9 +1,8 @@
 <p align="center">
-  <img src="assets/arm-animation.svg" width="200"/>
+  <img src="assets/processor-animation.svg" width="600"/>
 </p>
-
 <p align="center">
-  <img src="assets/title-animation.svg" width="900"/>
+  <img src="assets/title.svg" width="900"/>
 </p>
 
 A fully offline, ARM-optimized speech-to-speech (S2S) translation system designed for mobile devices.  
