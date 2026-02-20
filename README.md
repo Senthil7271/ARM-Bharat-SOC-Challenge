@@ -1,9 +1,9 @@
 <p align="center">
   <img src="assets/processor-animation.svg" width="600"/>
 </p>
-
-# ARM-Optimized Fully Offline Speech-to-Speech Translation System
-
+<p align="center">
+  <img src="assets/title-animation.svg" width="900"/>
+</p>
 A fully offline, ARM-optimized speech-to-speech (S2S) translation system designed for mobile devices.  
 The system performs real-time Speech-to-Text (STT), semantic translation, and Text-to-Speech (TTS) entirely on-device without any cloud dependency.
 
