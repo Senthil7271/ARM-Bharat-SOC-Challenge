@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/processor-animation.svg" width="600"/>
+  <img src="assets/arm-animation.svg" width="200"/>
 </p>
 
 <p align="center">
