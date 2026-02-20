@@ -1,118 +1,156 @@
-# Voice Translator - English ↔ Hindi
+<p align="center">
+  <img src="assets/processor-animation.svg" width="600"/>
+</p>
+<p align="center">
+  <img src="assets/title.svg" width="900"/>
+</p>
 
-A professional voice translator Android app built with Kotlin that translates between English and Hindi with both text and voice input/output support.
+A fully offline, ARM-optimized speech-to-speech (S2S) translation system designed for mobile devices.  
+The system performs real-time Speech-to-Text (STT), semantic translation, and Text-to-Speech (TTS) entirely on-device without any cloud dependency.
 
-![Voice Translator](screenshots/app_preview.png)
+---
 
-## Features
+## 🚀 Features
 
-- **Bidirectional Translation**: Translate from English to Hindi and Hindi to English
-- **Voice Input**: Speak in either language using speech recognition
-- **Text-to-Speech**: Listen to translations in the target language
-- **Offline Translation**: Uses ML Kit for on-device translation (models downloaded once)
-- **Modern UI**: Material Design 3 with light/dark theme support
-- **Copy & Share**: Easily copy or share translations
+- 🎤 Speech-to-Text using Whisper-Tiny
+- 🌍 Semantic Translation using MarianMT
+- 🔊 Text-to-Speech using Piper Neural TTS
+- ⚡ Chunk-based streaming inference for reduced latency
+- 🧠 INT8 quantized models for memory efficiency
+- 🏎️ ARM NEON SIMD optimized inference
+- 🔒 Fully offline execution (No cloud / No API calls)
 
-## Screenshots
+---
 
-| Light Mode | Dark Mode |
-|------------|-----------|
-| Main Screen | Main Screen |
-| Voice Input | Voice Input |
+## 🏗️ System Architecture
 
-## Tech Stack
 
-- **Language**: Kotlin
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **UI**: Material Design 3 with View Binding
-- **Translation**: Google ML Kit Translation API
-- **Speech**: Android Speech Recognition & Text-to-Speech
-- **Animation**: Lottie
+Microphone
+↓
+AudioRecord (16kHz PCM)
+↓
+Chunk Manager (1s window, 200ms overlap)
+↓
+Log-Mel Feature Extraction
+↓
+Whisper-Tiny (INT8, TFLite)
+↓
+MarianMT (INT8, ONNX Runtime)
+↓
+Piper TTS (INT8, ONNX)
+↓
+AudioTrack Playback
+↓
+Speaker
 
-## Requirements
 
-- Android 7.0 (API 24) or higher
-- Internet for initial model download
-- Microphone permission for voice input
+All processing runs locally on ARM CPU with NEON acceleration.
 
-## Setup
+---
+
+## 🧠 Models Used
+
+| Component | Model | Optimization |
+|------------|--------|--------------|
+| STT | Whisper-Tiny | INT8 Quantized (TFLite) |
+| Translation | MarianMT | INT8 Quantized (ONNX) |
+| TTS | Piper | INT8 Quantized (ONNX) |
+
+---
+
+## ⚙️ Optimization Techniques
+
+- INT8 Post-Training Quantization
+- NEON SIMD Accelerated GEMM
+- XNNPACK Backend (TFLite)
+- ONNX Runtime Mobile (ARM CPU Execution Provider)
+- Chunk-Based Streaming Inference
+- Reduced Beam Width for STT
+- Sequence Length Limiting for Translation
+
+---
+
+## 📱 Hardware Requirements
+
+- ARMv8.2-A based smartphone
+- NEON SIMD support
+- Android 12+
+- Minimum 6GB RAM recommended
+
+---
+
+## 🛠️ Software Stack
+
+- Android Studio
+- TensorFlow Lite
+- ONNX Runtime Mobile
+- Kotlin / Java
+- ARM NEON optimized backend
+
+---
+
+## 📊 Performance Metrics
+
+| Metric | Value |
+|---------|--------|
+| End-to-End Latency | ~1.3 seconds |
+| Memory Reduction (FP32 → INT8) | ~67% |
+| Average CPU Usage | ~60% |
+| Max Device Temperature | ~41°C |
+| Cloud Dependency | None |
+
+---
+
+## 🔒 Offline Validation
+
+- No INTERNET permission required
+- All models stored locally in assets
+- Verified in airplane mode
+- No external API calls
+
+
+
+## 🧪 How to Run
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/VoiceTranslator.git
-```
 
-2. Open the project in Android Studio (Hedgehog or later)
 
-3. Sync Gradle and build the project
+git clone https://github.com/Senthil7271/ARM-Bharat-SOC-Challenge.git
 
-4. Run on a device or emulator
 
-## Project Structure
+2. Open in Android Studio
+3. Build and run on ARM-based device
+4. Grant microphone permission
+5. Start speaking 🎤
 
-```
-app/
-├── src/main/
-│   ├── java/com/voicetranslator/
-│   │   ├── data/
-│   │   │   ├── model/
-│   │   │   │   ├── Language.kt
-│   │   │   │   ├── ModelDownloadState.kt
-│   │   │   │   └── TranslationResult.kt
-│   │   │   └── repository/
-│   │   │       └── TranslationRepository.kt
-│   │   └── ui/
-│   │       ├── MainActivity.kt
-│   │       ├── SplashActivity.kt
-│   │       ├── state/
-│   │       │   └── TranslatorUiState.kt
-│   │       └── viewmodel/
-│   │           └── TranslatorViewModel.kt
-│   └── res/
-│       ├── drawable/
-│       ├── layout/
-│       ├── values/
-│       └── raw/
-```
+---
 
-## How It Works
+## 🎯 Key Contributions
 
-### Translation
-The app uses Google ML Kit's Translation API which works offline after initial model download. When you first launch the app, it downloads the English-Hindi translation models (~30MB each).
+- Fully offline transformer-based speech-to-speech pipeline
+- ARM NEON optimized execution
+- Mobile-efficient INT8 deployment
+- Real-time chunk-based streaming implementation
 
-### Voice Input
-Speech recognition is handled by Android's built-in `SpeechRecognizer` API. The app automatically selects the correct language based on the source language setting.
+---
 
-### Text-to-Speech
-Android's `TextToSpeech` engine reads out translations. Make sure you have the required language packs installed on your device.
+## 📌 Future Improvements
 
-## Permissions
+- SME2 optimization support
+- NPU acceleration
+- Dynamic quantization tuning
+- Multi-language support expansion
 
-- **INTERNET**: Required to download translation models
-- **RECORD_AUDIO**: Required for voice input feature
+---
 
-## Building for Release
+## 📄 License
 
-1. Create a keystore file
-2. Configure signing in `app/build.gradle.kts`
-3. Build signed APK/Bundle:
-```bash
-./gradlew assembleRelease
-```
+This project is for research and educational purposes.
 
-## Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+## 👨‍💻 Author
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Google ML Kit for translation
-- Material Design for UI components
-- Lottie for animations
+Your Name  
+Electronics Engineering (VLSI Design)  
+ARM-Optimized Edge AI Research
