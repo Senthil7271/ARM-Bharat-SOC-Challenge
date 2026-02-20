@@ -1,1 +1,31 @@
+<svg width="700" height="220" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="220" fill="#0d1117"/>
 
+  <!-- CPU -->
+  <rect x="250" y="60" width="200" height="100" rx="12"
+        fill="#111827" stroke="#00ffcc" stroke-width="3"/>
+
+  <text x="350" y="115" text-anchor="middle"
+        fill="#00ffcc" font-size="20" font-family="monospace">
+    ARM Cortex-A
+  </text>
+
+  <text x="350" y="140" text-anchor="middle"
+        fill="#00ffaa" font-size="14" font-family="monospace">
+    NEON SIMD INT8
+  </text>
+
+  <!-- Moving Data Blocks -->
+  <rect x="50" y="95" width="20" height="20" fill="#00ffcc">
+    <animate attributeName="x" from="50" to="250" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="630" y="95" width="20" height="20" fill="#00ffcc">
+    <animate attributeName="x" from="630" to="450" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Pulse Effect -->
+  <circle cx="350" cy="110" r="50" fill="#00ffcc" opacity="0.08">
+    <animate attributeName="r" values="40;65;40" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
