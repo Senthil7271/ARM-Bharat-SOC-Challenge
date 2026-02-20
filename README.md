@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/processor-animation.svg" width="600"/>
+</p>
 # ARM-Optimized Fully Offline Speech-to-Speech Translation System
 
 A fully offline, ARM-optimized speech-to-speech (S2S) translation system designed for mobile devices.  
