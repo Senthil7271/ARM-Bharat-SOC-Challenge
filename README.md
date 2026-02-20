@@ -103,28 +103,7 @@ All processing runs locally on ARM CPU with NEON acceleration.
 - Verified in airplane mode
 - No external API calls
 
----
 
-## 📂 Project Structure
-
-
-app/
-├── assets/
-│ ├── whisper_tiny_int8.tflite
-│ ├── marian_int8.onnx
-│ ├── piper_int8.onnx
-│
-├── java/com/project/
-│ ├── AudioRecorder.kt
-│ ├── ChunkManager.kt
-│ ├── WhisperEngine.kt
-│ ├── TranslationEngine.kt
-│ ├── TTSEngine.kt
-│
-└── MainActivity.kt
-
-
----
 
 ## 🧪 How to Run
 
