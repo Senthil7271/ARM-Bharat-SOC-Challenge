@@ -1,0 +1,8 @@
+VoiceTranslator/app/build/
+VoiceTranslator/build/
+VoiceTranslator/.gradle/
+*.apk
+*.aab
+.gradle
+.idea
+local.properties
