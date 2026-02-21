@@ -599,6 +599,6 @@ This project is for research and educational purposes.
 
 ## 👨‍💻 Author
 
-Your Name  
+Senthil Kumar Mahalingam
 Electronics Engineering (VLSI Design)  
 ARM-Optimized Edge AI Research
