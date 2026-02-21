@@ -9,7 +9,11 @@ A fully offline, ARM-optimized speech-to-speech (S2S) translation system designe
 The system performs real-time Speech-to-Text (STT), semantic translation, and Text-to-Speech (TTS) entirely on-device without any cloud dependency.
 
 ---
+## 🎥 Demo Video
 
+Watch the project demo here:
+
+[▶️ Click here to watch the demo video](https://drive.google.com/file/d/1_2LacNF6v3EeliJ1lKZP0iT7dN1Uukd7/view?usp=drivesdk)
 ## 🚀 Features
 
 - 🎤 Speech-to-Text using Whisper-Tiny
